@@ -1,0 +1,89 @@
+*{
+	font-size: 20px;
+	font-family: arial;
+}
+
+header{
+	margin: 10px auto;
+	height: 100px;
+	width: 900px;
+}
+header h1{
+	color: #993399;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+main{
+	margin: 0 auto;
+	width: 900px;
+	padding: 15px;
+	/*border: 1px solid red;*/
+}
+
+.formlogin{
+	width: 400px;
+	height: 350px;
+	margin: 0px auto;
+	border: 1px solid rgba(255, 255, 255,0.2);
+	box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+	border-radius:5px ;
+}
+
+.formlogin h1{
+	color:rgb(0,0,205);
+	padding: 15px;
+	font-size: 33px;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 0.1em 0.1em #333;
+
+}
+
+.formlogin p{
+	font-size: 16px;
+	text-align: center;
+}
+
+.formlogin label{
+	color: #993399;
+	font-weight: bold;
+	display: block;
+	margin: 10px 20px;
+
+
+}
+
+.formlogin input{
+ 	font-size: 18px;
+    display: block;
+    margin:0 auto ;
+    padding: 10px 20px;
+    width: 70%;
+    color: #000000;
+
+}
+
+.formlogin input:focus{
+	background: rgb(0,0,255);
+	color: #ffffff;
+	font-size: 22px;
+}
+
+.formlogin button{
+	display: block;
+	text-align: center;
+	margin: 10px 50px;
+	border-radius: 5px;
+	width: 70%;
+	height:2em;
+	background: rgb(0,0,205);
+	color: #ffffff;
+
+}
+
+.formlogin button:hover{
+	cursor: pointer;
+	background: blue;
+	color: #ffffff;
+}

@@ -1,0 +1,15 @@
+{
+    "name": "weliton/login",
+    "autoload": {
+        "psr-4": {
+            "Weliton\\Login\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "weliton",
+            "email": "welingtonzsilva@gmail.com"
+        }
+    ],
+    "require": {}
+}
