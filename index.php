@@ -22,11 +22,11 @@
 <body>
 
 	<header>
-		
+		<h1>Acesse o Repositório <a href="https://github.com/wellz3280/loginPhp">Git</a> deste Formulário </h1>
 	</header>
 	<main>
 		<div class="formlogin">
-			<h1>LocaWell</h1>
+			<h1>Login </h1>
 			<form action="index.php" method="post">
 
 				<label for="usuario"></label>
@@ -38,7 +38,7 @@
 				<button type="submit">Entrar</button>
 
 					<p>
-						<a href="#">Esqueceu a senha ? | </a>
+						
 						<a href="Cadastrar.php">Cadastre -se </a>
 					
 					</p>
