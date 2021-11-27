@@ -21,27 +21,36 @@
 </head>
 <body>
 
-	<header>
-        <h1>LocaWell</h1>
+	<header id="cadastrar">
+       
+	   <h1>Acesse o Repositório <a href="https://github.com/wellz3280/loginPhp">Git</a> deste Formulário </h1>
+		
 	</header>
-	<main>
+	<main >
 		<div class="formloginCadastrar">
-			
+		
 			<form action="index.php" method="post">
 
-				<label for="usuario"></label>
-				<input type="text" id="usuario" name="usuario" placeholder="Email ou Usuário" required>
+				<label for="nome"></label>
+				<input type="text" id="nome" name="nome" placeholder="Nome" required>
+
+				<label for="sobrenome"> </label>
+				<input type="text" id="sobrenome" name="sobrenome" placeholder="Sobrenome" required>
+
+				<label for="email"> </label>
+				<input type="email" id="email" name="email" placeholder="Email" required>
+				
+				<label for="redigiteEmail"> </label>
+				<input type="email" id="redigiteEmail" name="redigiteEmail" placeholder="Confirmar Email " required>
 
 				<label for="senha"> </label>
 				<input type="password" id="senha" name="senha" placeholder="Senha" required>
 
-				<button type="submit">Entrar</button>
+				<label for="contrasenha"> </label>
+				<input type="password" id="contrasenha" name="contrasenha" placeholder="Confirmar Senha " required>
+				
+				<button type="submit">Cadastrar</button>
 
-					<p>
-						<a href="#">Esqueceu a senha ? | </a>
-						<a href="#">Cadastre -se </a>
-					
-					</p>
 				
 					
 			</form>
