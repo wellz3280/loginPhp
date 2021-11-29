@@ -1,3 +1,4 @@
 /vendor/
 .teste.php
-
+/src/Domain/Model/Cliente.php
+/src/Domain/Model/Mesa.php
