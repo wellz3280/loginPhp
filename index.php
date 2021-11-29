@@ -1,13 +1,27 @@
 <?php
-	if($_SERVER['REQUEST_METHOD']=== 'POST'){
-		if($_POST['usuario'] == "wellz3280" && $_POST['senha']== "well1006")
-		{
-			echo "Bem vindo {$_POST['usuario']}";
-		}else{
-			echo "usuario ou senha invalidos";
-		}
 
-	}
+use Weliton\Login\Infra\Persistence\Connection;
+use Weliton\Login\Infra\Repository\QueryBuilder;
+
+require 'vendor/autoload.php';
+
+$conexao = Connection::ConnSqlite('login');
+
+$query = new QueryBuilder($conexao);
+
+  //SELECT 
+  $result = $query
+  ->columns(['*'])
+  //->columns(['email','idCliente'])
+  ->from("users")
+  //->where('where','idEmail',2)
+  ->get('select');
+
+  
+  foreach($result as  $content){
+	  echo "email: ".$content['idUser']. PHP_EOL;
+	  echo "id Cliente: ".$content['nome']. PHP_EOL;
+  }
 
 ?>
 <!Doctype html>
