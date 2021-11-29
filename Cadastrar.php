@@ -1,12 +1,38 @@
 <?php
-	if($_SERVER['REQUEST_METHOD']=== 'POST'){
-		if($_POST['usuario'] == "wellz3280" && $_POST['senha']== "well1006")
-		{
-			echo "Bem vindo {$_POST['usuario']}";
-		}else{
-			echo "usuario ou senha invalidos";
-		}
 
+use Weliton\Login\Domain\Model\Email;
+use Weliton\Login\Infra\Persistence\Connection;
+use Weliton\Login\Infra\Repository\QueryBuilder;
+
+require 'vendor/autoload.php';
+
+	if($_SERVER['REQUEST_METHOD']=== 'POST'){
+		
+		$conn = Connection::ConnSqlite('login');
+
+		$email = new Email();
+		if($email->validaEmail($_POST['email'],$_POST['redigiteEmail'])){
+			$query = new QueryBuilder($conn);
+
+			$data = [
+				'idUser' => 1,
+				'nome' => $_POST['nome'],
+				'sobrenome' => $_POST['sobrenome'],
+				'email' => $_POST['email'],
+				'senha' => $_POST['senha']
+			];
+		
+			$query->parameters($data)
+			->from('users')
+			->get('insert');
+		 
+			header('Location:index.php');
+
+		}else{
+			 $email->getEmail();
+		
+		}
+		
 	}
 
 ?>
@@ -29,7 +55,7 @@
 	<main >
 		<div class="formloginCadastrar">
 		
-			<form action="index.php" method="post">
+			<form action="Cadastrar.php" method="post">
 
 				<label for="nome"></label>
 				<input type="text" id="nome" name="nome" placeholder="Nome" required>

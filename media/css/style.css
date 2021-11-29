@@ -5,19 +5,21 @@
 
 header{
 	margin: 10px auto;
-	height: 100px;
+	text-align: center;
 	width: 900px;
+	padding: 20px 0px;
 }
 header h1{
 	color: #993399;
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 1.5em;
+	
 }
 
 main{
 	margin: 0 auto;
 	width: 900px;
-	padding: 15px;
+	padding: 0px;
 	/*border: 1px solid red;*/
 }
 
@@ -73,7 +75,7 @@ main{
 .formlogin button{
 	display: block;
 	text-align: center;
-	margin: 10px 50px;
+	margin: 10px 50px;border: 1px solid red;
 	border-radius: 5px;
 	width: 70%;
 	height:2em;
@@ -86,4 +88,60 @@ main{
 	cursor: pointer;
 	background: blue;
 	color: #ffffff;
+}
+
+/* Estilo pagina cadastrar*/
+
+.formloginCadastrar{
+	width: 900px;
+	
+	margin: 0px auto;
+	/*
+	border: 1px solid rgba(255, 255, 255,0.2);
+	box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+	border-radius:5px ;
+	*/
+}
+
+.formloginCadastrar input{
+	font-size: 18px;
+   display: block;
+   margin:0 auto ;
+   padding: 10px 20px;
+   margin-top: 30px;
+   width: 70%;
+   color: #000000;
+
+}
+
+.formloginCadastrar input:focus{
+   background: rgb(0,0,255);
+   color: #ffffff;
+   font-size: 22px;
+}
+
+.formloginCadastrar button{
+   display: block;
+   position: relative;
+   text-align: center;
+   margin: 30px 130px ;
+   
+   border-radius: 5px;
+   width: 20%;
+   height:2em;
+   background: rgb(0,0,205);
+   color: #ffffff;
+
+}
+
+.formloginCadastrar button:hover{
+   cursor: pointer;
+   background: blue;
+   color: #ffffff;
+}
+
+#cadastrar{
+	margin: 0 auto;
+	
+	width: 900px;
 }
