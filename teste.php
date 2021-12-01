@@ -1,12 +1,23 @@
 <?php 
 
-use Weliton\Login\Domain\Model\{Mesa,Cliente};
+use Weliton\Login\Domain\Model\{Mesa,Cliente, Email};
 use Weliton\Login\Infra\Persistence\Connection;
+use Weliton\Login\Infra\Repository\CadastraCliente;
 use Weliton\Login\Infra\Repository\QueryBuilder;
 
 require 'vendor/autoload.php';
 
 $conexao = Connection::ConnSqlite('login');
+
+
+$cad = new CadastraCliente($conexao);
+
+$email = new Email('welington@locawell.com','welington@locawell.com');
+
+$cad->verifyEmail($email)
+	->data(['banana','arroz','feijao']);
+
+
 
 //$sql = "DROP TABLE IF EXISTS users";
 
