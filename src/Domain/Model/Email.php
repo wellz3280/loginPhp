@@ -8,22 +8,20 @@ class Email
 
     public function __construct(string $email, string $confirmaEmail)
     {
+        $this->email = $email;
         $this->confirmaEmail = $confirmaEmail;
-        $this->validaEmail($email,$confirmaEmail);
+        //$this->validaEmail($email,$confirmaEmail);
     }
 
     public function validaEmail(string $email,string  $confirmaEmail):bool
     {
-        if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-           if($email == $confirmaEmail){
-               $this->email = $email;
-                return true;
-            }else{
-                $this->email= "Emails diferentes!";
-                return false;
-            }
+        if(filter_var($email,FILTER_VALIDATE_EMAIL) == true && $email == $confirmaEmail){
+     
+            return true;
+        
         }else{
-            $this->email= "Email Invalido";
+            
+            echo "Emails diferentes";
             return false;
         }
    
