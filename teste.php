@@ -12,10 +12,10 @@ $conexao = Connection::ConnSqlite('login');
 
 $cad = new CadastraCliente($conexao);
 
-$email = new Email('welington@locawell.com','welington@locawell.com.br');
+$email = new Email('welington@locawell.com','welington@locawell.com');
 
 $cad->verifyEmail($email)
-	->verifySenha(new Senha('Well1006','Well100'))
+	->verifySenha(new Senha('Senha1234','Senha1234'))
 	->data(['banana','arroz','feijao']);
 
 
