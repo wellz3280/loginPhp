@@ -8,11 +8,14 @@ class Senha
 
     public function __construct(string $senha , string $contraSenha)
     {
-        $this->verificaSenha($senha,$contraSenha);
+        $this->senha = $senha; 
+        $this->contraSenha = $contraSenha;   
+
+       // $this->verificaSenha($senha,$contraSenha);
         
     }   
 
-    private function verificaSenha(string $senha, string $contraSenha):bool
+    public function verificaSenha(string $senha, string $contraSenha):bool
     {
          // verificar se tem letras maiuculas e numeros e caracteres especiais
         $verifica = preg_match('/[a-z]/',$senha) && preg_match('/[A-Z]/',$senha)
@@ -22,20 +25,24 @@ class Senha
        $size = strlen($senha);
        if($size >= 8 && $size <= 16 && $verifica == true && $senha == $contraSenha){
            
-            $this->senha = $senha; 
-            $this->contraSenha = $contraSenha;   
-
+            
            return true;
        }else{
+        
             echo "As senhas devem ser iguais e ter entre 8 e 16 caracters,
-             conter pelo menos um número e uma letra maíscula";
+             conter pelo menos um número e uma letra maíscula <br>";
            return false;
         }
     }
 
+    public function getSenha():string
+    {
+        return $this->senha;
+    }
+
+    public function getContraSenha():string
+    {
+        return $this->contraSenha;
+    }
+
 }
-
-$teste = new Senha('Wellington10','Wellington10');
-
-
-
