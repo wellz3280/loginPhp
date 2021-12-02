@@ -1,6 +1,6 @@
 <?php 
 
-use Weliton\Login\Domain\Model\{Mesa,Cliente, Email};
+use Weliton\Login\Domain\Model\{Mesa,Cliente, Email, Senha};
 use Weliton\Login\Infra\Persistence\Connection;
 use Weliton\Login\Infra\Repository\CadastraCliente;
 use Weliton\Login\Infra\Repository\QueryBuilder;
@@ -12,9 +12,10 @@ $conexao = Connection::ConnSqlite('login');
 
 $cad = new CadastraCliente($conexao);
 
-$email = new Email('welington@locawell.com','welington@locawell.com');
+$email = new Email('welington@locawell.com','welington@locawell.com.br');
 
 $cad->verifyEmail($email)
+	->verifySenha(new Senha('Well1006','Well100'))
 	->data(['banana','arroz','feijao']);
 
 

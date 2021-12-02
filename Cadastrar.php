@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
 		
 		$conn = Connection::ConnSqlite('login');
 
-		$email = new Email();
+		$email = new Email($_POST['email']);
 		if($email->validaEmail($_POST['email'],$_POST['redigiteEmail'])){
 			$query = new QueryBuilder($conn);
 
