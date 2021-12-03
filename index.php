@@ -19,9 +19,12 @@ $query = new QueryBuilder($conexao);
 
   
   foreach($result as  $content){
-	  echo "email: ".$content['idUser']. PHP_EOL;
-	  echo "id Cliente: ".$content['nome']. PHP_EOL;
-  }
+	  echo "#".$content['idUser']. "<br>";
+	  echo "Nome: ".$content['nome']. "<br>";
+	  echo "Sobrenome: ".$content['sobrenome']. "<br>";
+	  echo "Email: ".$content['email']. "<br>";
+	  echo "Senha: ".$content['senha']. "<br>";
+	}
 
 ?>
 <!Doctype html>
