@@ -3,7 +3,7 @@
  * Conexão com o banco de dados [ok]
  * Pega o ultimo ID e soma 1 [ok]
  * Estanciar Email e verificar se pe valido [ok]
- * Estanciar Password e verificar se a senha é valida []
+ * Estanciar Senha e verificar se a senha é valida [ok]
  * Montar um array, com os paramatros passados em $data e adicionar
  * o novo id ao array data [ok]
  * Verificar se todos os dados estão ok []
@@ -40,40 +40,46 @@ class CadastraCliente
         return $result = $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function verifyEmail(Email $objemail):self
+    public function data(array $data, Email $objemail, Senha $objSenha):self
     {
-         $this->email = $objemail->getEmail();
+        //setando e trazendo ao valores 
+        $this->senha = $objSenha->getSenha();
+        $this->contraSenha = $objSenha->getContraSenha();  
+        
+        //setando e trazendo ao valores 
+        $this->email = $objemail->getEmail();
         $this->confirmaEmail = $objemail->getConfimateEmail();
 
-        $objemail->validaEmail($this->email,$this->confirmaEmail);
+        //verificando se a senha eo email passou no teste
+        if($objSenha->verificaSenha($this->senha,$this->contraSenha) == true 
+        && $objemail->validaEmail($this->email,$this->confirmaEmail)== true){
+           
+            //adicionando valores ao array
+            $data[] = $this->email;
+            $data[] = $this->senha;
 
-        return $this;
+      foreach($this->verifyId() as  $indice){
+        $firstIndice = $indice['idUser'] + 1;
+     }
+
+     $coluns = ['idUser','nome','sobrenome','email','senha'];
+
+     array_unshift($data,$firstIndice);
+
+     $this->result = array_combine($coluns,$data);
+    }else{
+        echo " Vereifique as informações";
     }
-
-    public function verifySenha(Senha $objSenha):self
-    {
-        $this->senha = $objSenha->getSenha();
-        $this->contraSenha = $objSenha->getContraSenha();
-
-        $objSenha->verificaSenha($this->senha,$this->contraSenha);
-        
-        return $this;
-    }
-
-    public function data(array $data):self
-    {
-       foreach($this->verifyId() as  $indice){
-            $firstIndice = $indice['idUser'] + 1;
-         }
-
-        array_unshift($data,$firstIndice);
 
        return $this;
     }
 
     public function get():void
     {
-
+       $query = new QueryBuilder($this->pdo);
+         $query->parameters($this->result)
+            ->from('users')
+            ->get('insert');
     }
 
 }
