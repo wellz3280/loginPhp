@@ -1,8 +1,8 @@
 <?php
 
-use Weliton\Login\Domain\Model\Email;
+use Weliton\Login\Domain\Model\{Email,Senha};
 use Weliton\Login\Infra\Persistence\Connection;
-use Weliton\Login\Infra\Repository\QueryBuilder;
+use Weliton\Login\Infra\Repository\{CadastraCliente,QueryBuilder};
 
 require 'vendor/autoload.php';
 
@@ -10,29 +10,14 @@ require 'vendor/autoload.php';
 		
 		$conn = Connection::ConnSqlite('login');
 
-		$email = new Email($_POST['email']);
-		if($email->validaEmail($_POST['email'],$_POST['redigiteEmail'])){
-			$query = new QueryBuilder($conn);
+		$cad = new CadastraCliente($conn);
 
-			$data = [
-				'idUser' => 1,
-				'nome' => $_POST['nome'],
-				'sobrenome' => $_POST['sobrenome'],
-				'email' => $_POST['email'],
-				'senha' => $_POST['senha']
-			];
-		
-			$query->parameters($data)
-			->from('users')
-			->get('insert');
-		 
-			header('Location:index.php');
+		$cad->data([$_POST['nome'],$_POST['sobrenome']],
+		new Email($_POST['email'],$_POST['redigiteEmail']),
+		new Senha($_POST['senha'],$_POST['contrasenha']))
+		->get();
 
-		}else{
-			 $email->getEmail();
-		
-		}
-		
+		header('Location:Cadastrar.php');
 	}
 
 ?>
